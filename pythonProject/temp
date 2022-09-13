@@ -1,0 +1,132 @@
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QPixmap
+import sys
+from PyQt5 import QtWidgets, QtCore
+
+image(80, 500, 250, 400, False, "man/man1.png")
+image(115, 106, 500, 400, False, "man/man2.png")
+image(120, 106, 200, 500, False, "man/man3.png")
+image(320, 106, 200, 50, False, "man/man4.png")
+image(270, 150, 200, 100, False, "man/man5.png")
+image(315, 250, 100, 150, False, "man/man6.png")
+image(260, 250, 100, 60, False, "man/man7.png")
+image(332, 250, 100, 60, False, "man/man8.png")
+image(260, 390, 100, 60, False, "man/man9.png")
+image(332, 390, 100, 60, False, "man/man10.png")
+
+
+def clicks():
+    x = 500
+    y = 240
+    exist = False
+
+    word = text_edit.toPlainText()
+
+    for i in range(5):
+        if word == letters[3][i]:
+            for k in range(i + 1):
+                x = x + 78
+            letters[3][i] = "&taken&"
+            image(x, 492, 400, 80, True, "box1.jpg")
+
+            exist = True
+
+    for i in range(3):
+        for j in range(7):
+
+            # the word exists
+            if word == letters[i][j]:
+
+                for k in range(j):
+                    x = x + 78
+                for p in range(i):
+                    y = y + 84
+                letters[i][j] = "&taken&"
+                image(x, y, 400, 80, True, "box1.jpg")
+                exist = True
+
+    if not exist:
+        message()
+
+
+button.clicked.connect(clicks)
+
+    for i in range(5):
+        if word == letters[3][i]:
+            for k in range(i + 1):
+                x = x + 78
+            letters[3][i] = "&taken&"
+            image(x, 492, 400, 80, True, "box1.jpg")
+            show_t(word)
+            exist = True
+image(20, 0, 450, 450, False, "hangman.png")
+image(0, 120, 450, 450, False, "the man.png")
+image(500, 230, 550, 550, False, "alpha.png")
+num = 550
+for i in range(4):
+    image(num, 150, 200, 20, False, "line.png")
+    num = num + 100
+
+l1 = QLabel()
+vbox = QVBoxLayout()
+vbox.addWidget(l1)
+window.setLayout(vbox)
+l1.setText(say)
+l1.setAlignment(QtCore.Qt.AlignCenter)
+l1.setFont(QFont('Times', 50))
+l1.hide()
+
+
+
+
+
+
+
+window.label = QLabel(window)
+window.pixmap = QPixmap('hangman.png')
+window.label.setPixmap(window.pixmap)
+window.label.resize(200, 300)
+
+
+
+
+app = QtWidgets.QApplication(sys.argv)
+widget = QtWidgets.QWidget()
+widget.resize(400, 200)
+widget.setWindowTitle("This is PyQt Widget example")
+pixmap = QPixmap('idk.gif')
+label.setPixmap(pixmap)
+widget.show()
+exit(app.exec_())
+
+
+window = Tk()
+window.title("Names")  # sets title of the window as names
+window.geometry("500x500")  # dimentions
+label1 = Label(text = "Enter a name") # creates label with this text
+label1.place(x = 20, y = 200, width = 125, height = 25) # position and dimentions
+
+myimage = PhotoImage(file='C:\\Users\\sutar\\OneDrive\\Desktop\\line.gif')
+window.create_image(0,0,anchor=NW, image=myimage)
+
+window.mainloop()
+# wn.addshape('idk.gif')
+
+#turtle.exitonclick()
+
+# wn.addshape('python2.gif')
+# tr.shape('python2.gif')
+# wn.mainloop()
+
+
+# turtle.colormode(255)
+# turtle.Screen().bgcolor(175,238,238)
+# turtle.write("GeeksForGeeks", font=("Verdana", 15, "normal"))
+
+label = QtGui.QLabel()
+pixmap = QtGui.QPixmap()
+pixmap.load('test.png')
+pixmap = pixmap.scaledToWidth(20)
+label.setPixmap(pixmap)
+
+label.show()
